@@ -75,6 +75,7 @@ DEFAULT_REQUEST_HEADERS = {
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'zhihuuser.pipelines.MongoPipeline': 300,
+    'scrapy_redis.pipelines.RedisPipeline': 301
     # 'scrapy_redis.pipelines.RedisPipeline': 301
 }
 
@@ -108,7 +109,13 @@ MONGO_URI = 'localhost'
 MONGO_DATABASE = 'zhihu'
 
 # SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+
 
 # DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 
 # SCHEDULER_FLUSH_ON_START = True
+SCHEDULER_PERSIST = True
+
+REDIS_URL = 'redis://@192.168.8.102:6379'
